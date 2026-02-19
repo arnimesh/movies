@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Inshorts</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_saved">Saved</string>
+    <string name="section_trending">Trending</string>
+    <string name="section_now_playing">Now Playing</string>
+    <string name="hint_search">Search movies…</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="bookmarked">Bookmarked</string>
+    <string name="share_movie">Share movie</string>
+    <string name="no_movies">No movies yet</string>
+    <string name="search_hint">Type to search movies</string>
+    <string name="search_no_results">No results for \"%1$s\"</string>
+    <string name="search_loading">Searching…</string>
+</resources>
