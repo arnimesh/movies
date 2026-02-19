@@ -20,13 +20,6 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
-/**
- * Implementation of [MovieRepository]: Room as source of truth, TMDB API for sync.
- *
- * All getters read from DB and map [MovieEntity] to domain [Movie]. Sync methods fetch from API,
- * map DTOs to entities, and write to Room; on network failure we catch and no-op (offline support).
- * Image base URL is not stored here; UI can use TMDB's known base (e.g. https://image.tmdb.org/t/p/w500).
- */
 class MovieRepositoryImpl(
     private val api: TmdbApiService,
     private val movieDao: MovieDao,
@@ -52,7 +45,6 @@ class MovieRepositoryImpl(
     override fun getBookmarkedMovies(): Flow<List<Movie>> =
         bookmarkDao.getBookmarkedMovieIds().flatMapLatest { ids -> loadMoviesInOrder(ids) }
 
-    /** Loads movies by ids from DB in the same order as [ids], then maps to domain. Runs on IO. */
     private fun loadMoviesInOrder(ids: List<Int>): Flow<List<Movie>> = flow {
         if (ids.isEmpty()) {
             emit(emptyList())

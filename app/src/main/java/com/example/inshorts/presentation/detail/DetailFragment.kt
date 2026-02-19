@@ -16,10 +16,6 @@ import com.example.inshorts.databinding.FragmentDetailBinding
 import com.example.inshorts.presentation.common.TMDB_IMAGE_BASE
 import kotlinx.coroutines.launch
 
-/**
- * Movie detail screen: poster, backdrop, title, overview, rating, genres, bookmark button.
- * Share button creates a dummy deeplink (yourapp://movie/{id}) so the app can open this movie from a link.
- */
 class DetailFragment : Fragment() {
 
     private var _binding: FragmentDetailBinding? = null

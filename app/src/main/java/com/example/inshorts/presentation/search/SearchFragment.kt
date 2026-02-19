@@ -19,10 +19,6 @@ import com.example.inshorts.databinding.FragmentSearchBinding
 import com.example.inshorts.presentation.common.SearchMovieListAdapter
 import kotlinx.coroutines.launch
 
-/**
- * Search tab: user types in the field; after 400ms debounce we fetch from API and show results.
- * Results update as the user types (bonus: no search button). Clicking a result navigates to detail.
- */
 class SearchFragment : Fragment() {
 
     private var _binding: FragmentSearchBinding? = null

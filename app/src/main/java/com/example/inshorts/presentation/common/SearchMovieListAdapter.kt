@@ -9,10 +9,6 @@ import com.example.inshorts.databinding.ItemMovieSearchBinding
 import com.example.inshorts.domain.entity.Movie
 import coil.load
 
-/**
- * RecyclerView adapter for search results: full-width rows (poster left, title + rating right).
- * Uses [item_movie_search.xml]. [onMovieClick] is invoked when an item is clicked.
- */
 class SearchMovieListAdapter(
     private val onMovieClick: (Movie) -> Unit,
 ) : ListAdapter<Movie, SearchMovieListAdapter.ViewHolder>(DiffCallback) {

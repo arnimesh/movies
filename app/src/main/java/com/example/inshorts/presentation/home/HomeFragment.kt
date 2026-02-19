@@ -17,10 +17,6 @@ import com.example.inshorts.databinding.FragmentHomeBinding
 import com.example.inshorts.presentation.common.MovieListAdapter
 import kotlinx.coroutines.launch
 
-/**
- * Home tab: shows trending and now-playing movie lists. Observes [HomeViewModel] state,
- * navigates to detail when a movie is clicked.
- */
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null

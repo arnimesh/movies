@@ -11,9 +11,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-/**
- * ViewModel for the saved (bookmarked) movies tab: observes [GetBookmarkedMoviesUseCase] and exposes the list.
- */
 class SavedViewModel(
     private val getBookmarkedMoviesUseCase: GetBookmarkedMoviesUseCase,
 ) : ViewModel() {

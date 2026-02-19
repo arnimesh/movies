@@ -4,13 +4,6 @@ import com.example.inshorts.data.local.entity.MovieEntity
 import com.example.inshorts.data.remote.dto.MovieDto
 import com.example.inshorts.domain.entity.Movie
 
-/**
- * Mappers between data layer (DTO / Room entity) and domain [Movie].
- *
- * Used by [MovieRepositoryImpl] when writing from API and when reading from DB for use cases.
- */
-
-/** Map API DTO to Room entity (for insert/update). Genres from detail endpoint become comma-separated string. */
 fun MovieDto.toEntity(): MovieEntity = MovieEntity(
     id = id,
     title = title,
@@ -24,7 +17,6 @@ fun MovieDto.toEntity(): MovieEntity = MovieEntity(
     runtime = runtime,
 )
 
-/** Map Room entity to domain model (for use case streams). */
 fun MovieEntity.toDomain(): Movie = Movie(
     id = id,
     title = title,

@@ -15,9 +15,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-/**
- * UI state for the home screen: trending and now-playing lists, loading, and error.
- */
 data class HomeUiState(
     val trending: List<Movie> = emptyList(),
     val nowPlaying: List<Movie> = emptyList(),
@@ -25,10 +22,6 @@ data class HomeUiState(
     val error: String? = null,
 )
 
-/**
- * ViewModel for the home screen: observes trending and now-playing from use cases,
- * triggers sync on start so data is fetched from API and written to DB (then flows emit from DB).
- */
 class HomeViewModel(
     private val getTrendingMoviesUseCase: GetTrendingMoviesUseCase,
     private val getNowPlayingMoviesUseCase: GetNowPlayingMoviesUseCase,
@@ -40,7 +33,6 @@ class HomeViewModel(
     val state: StateFlow<HomeUiState> = _state.asStateFlow()
 
     init {
-        // Observe trending: use case returns Flow from repository (Room)
         viewModelScope.launch {
             getTrendingMoviesUseCase().collect { list ->
                 _state.update { it.copy(trending = list) }
@@ -51,7 +43,6 @@ class HomeViewModel(
                 _state.update { it.copy(nowPlaying = list) }
             }
         }
-        // Trigger sync so API is fetched and DB is updated (offline: no-op, cached data stays)
         viewModelScope.launch {
             Log.d(TAG, "Sync started")
             _state.update { it.copy(loading = true) }

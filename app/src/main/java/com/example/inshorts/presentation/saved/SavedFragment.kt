@@ -17,9 +17,6 @@ import com.example.inshorts.databinding.FragmentSavedBinding
 import com.example.inshorts.presentation.common.MovieListAdapter
 import kotlinx.coroutines.launch
 
-/**
- * Saved tab: shows bookmarked movies. Observes [SavedViewModel] state; click navigates to detail.
- */
 class SavedFragment : Fragment() {
 
     private var _binding: FragmentSavedBinding? = null

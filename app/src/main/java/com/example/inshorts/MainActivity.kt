@@ -12,10 +12,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.inshorts.databinding.ActivityMainBinding
 
-/**
- * Single Activity: hosts NavHostFragment (Home, Search, Saved, Detail) and bottom navigation.
- * Handles dummy deeplink (inshorts://movie/{id}) so opening the link navigates to movie detail.
- */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -44,10 +40,6 @@ class MainActivity : AppCompatActivity() {
         handleDeeplink(intent)
     }
 
-    /**
-     * If the app was opened via inshorts://movie/{id}, navigate to the detail fragment with that movie id.
-     * Post navigation so the NavHost is ready (e.g. on cold start from deeplink).
-     */
     private fun handleDeeplink(intent: Intent?) {
         val uri: Uri = intent?.data ?: return
         if (uri.scheme != "inshorts" || uri.host != "movie") return

@@ -7,12 +7,6 @@ import androidx.room.Query
 import com.example.inshorts.data.local.entity.BookmarkEntity
 import kotlinx.coroutines.flow.Flow
 
-/**
- * DAO for [bookmarks]: set of movie ids that the user has bookmarked.
- *
- * Toggle = insert or delete one row. [getBookmarkedMovieIds] streams the current set;
- * repository joins with [MovieDao] to get full movie data.
- */
 @Dao
 interface BookmarkDao {
 

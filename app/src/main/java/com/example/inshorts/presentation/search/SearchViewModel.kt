@@ -15,19 +15,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-/**
- * UI state for search: current query, results list, loading.
- */
 data class SearchUiState(
     val query: String = "",
     val results: List<Movie> = emptyList(),
     val loading: Boolean = false,
 )
 
-/**
- * ViewModel for search: [onQueryChanged] is called as the user types; we debounce 400ms then
- * call [SearchAndStoreMoviesUseCase]; we observe [SearchMoviesUseCase](query) so results update when DB has data.
- */
 class SearchViewModel(
     private val searchMoviesUseCase: SearchMoviesUseCase,
     private val searchAndStoreMoviesUseCase: SearchAndStoreMoviesUseCase,
@@ -39,7 +32,6 @@ class SearchViewModel(
     private var debounceJob: Job? = null
     private var resultsJob: Job? = null
 
-    /** Call from fragment when search input text changes. Debounces then fetches; observes results flow for this query. */
     fun onQueryChanged(query: String) {
         _state.update { it.copy(query = query) }
         resultsJob?.cancel()

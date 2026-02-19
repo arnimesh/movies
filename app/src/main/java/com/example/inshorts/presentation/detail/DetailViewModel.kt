@@ -21,11 +21,6 @@ data class DetailUiState(
     val isBookmarked: Boolean = false,
 )
 
-/**
- * ViewModel for movie detail: observes [GetMovieDetailsUseCase] for the given [movieId],
- * triggers [SyncMovieDetailsUseCase] on start so full details (genres, runtime) are loaded.
- * [ToggleBookmarkUseCase] updates bookmark state; UI can derive isBookmarked from repository flow if we expose it (here we use a simple local state for the button).
- */
 class DetailViewModel(
     private val movieId: Int,
     private val getMovieDetailsUseCase: GetMovieDetailsUseCase,

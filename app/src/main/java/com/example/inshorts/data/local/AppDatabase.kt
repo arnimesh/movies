@@ -11,11 +11,6 @@ import com.example.inshorts.data.local.entity.ListMovieEntity
 import com.example.inshorts.data.local.entity.MovieEntity
 import com.example.inshorts.data.local.entity.SearchResultEntity
 
-/**
- * Room database for the app: movies cache, list membership (trending/now_playing), search results, bookmarks.
- *
- * Version must be bumped and a migration added when the schema changes.
- */
 @Database(
     entities = [
         MovieEntity::class,

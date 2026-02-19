@@ -7,12 +7,6 @@ import androidx.room.Query
 import com.example.inshorts.data.local.entity.SearchResultEntity
 import kotlinx.coroutines.flow.Flow
 
-/**
- * DAO for [search_results]: which movies are in the result set for a given query.
- *
- * When search runs, we delete previous results for that query and insert the new list.
- * [getMovieIdsForQuery] returns ordered ids; repository loads movies and maps to domain.
- */
 @Dao
 interface SearchResultDao {
 

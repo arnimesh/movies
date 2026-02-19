@@ -18,12 +18,6 @@ import com.example.inshorts.domain.usecase.SyncNowPlayingMoviesUseCase
 import com.example.inshorts.domain.usecase.SyncTrendingMoviesUseCase
 import com.example.inshorts.domain.usecase.ToggleBookmarkUseCase
 
-/**
- * Holds the single [MovieRepository] and creates use cases on demand.
- *
- * Created once in [MoviesApp]; fragments get ViewModel factories that use this container
- * so ViewModels receive the use cases they need (Clean Architecture: presentation depends on domain only).
- */
 class AppContainer(context: Context) {
 
     private val database: AppDatabase by lazy {
@@ -51,7 +45,6 @@ class AppContainer(context: Context) {
         private const val TAG = "Inshorts/DI"
     }
 
-    // ---------- Use cases (lazy: created once when first needed) ----------
     fun getTrendingMoviesUseCase() = GetTrendingMoviesUseCase(repository)
     fun getNowPlayingMoviesUseCase() = GetNowPlayingMoviesUseCase(repository)
     fun getMovieDetailsUseCase() = GetMovieDetailsUseCase(repository)
